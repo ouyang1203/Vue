@@ -45,7 +45,17 @@ module.exports={
             //filename:指定内存中生成的HTML页面名称
             filename:'index.html'
         })
-   ]
+   ],
+   module:{
+       //这个模块用于配置所有的第三方模块加载器
+       rules:[
+           /**
+            * 所有第三方模块的匹配规则
+            * 用正则表达式匹配所有已CSS结尾的文件，用style-loader,css-loader来处理
+           */
+           {test:/\.css$/,use:['style-loader','css-loader']}
+       ]
+    }
 }
 /**
  * 使用webpack-dev-server工具，来实现自动打包编译的功能

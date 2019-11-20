@@ -8,6 +8,16 @@
 //需要到终端里面执行webpack src/main.js -o dist/bundle.js()
 import $ from 'jquery'
 
+/**
+ * 使用import语法导入CSS样式表
+ * 注意：webpack默认只能处理包含JS类型的文件，其他非JS类型文件我们需要手动安装第三方loader加载器；
+ * 1. 如果想要打包处理CSS文件，则需要安装npm i style-loader css-loader -D 到本地项目中
+ * 2. 打开webpack.config.js配置文件，在里面新增一个配置节点叫做module,它是一个对象，在这个module对象里有rules属性，
+ * 这个rules对象是数组，里面存放了所有第三方文件的匹配和处理规则
+ * */
+import './css/index.css'
+
+
 $(function(){
     $("li:odd").css("backgroundColor",'green');
     $("li:even").css("backgroundColor",function(){
