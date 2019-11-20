@@ -14,6 +14,12 @@ import $ from 'jquery'
  * 1. 如果想要打包处理CSS文件，则需要安装npm i style-loader css-loader -D 到本地项目中
  * 2. 打开webpack.config.js配置文件，在里面新增一个配置节点叫做module,它是一个对象，在这个module对象里有rules属性，
  * 这个rules对象是数组，里面存放了所有第三方文件的匹配和处理规则
+ * 
+ * 注意webpack处理第三方文件类型的过程：
+ * 1. 发现要处理的文件不是JS文件，然后就去配置文件中查找第三方loader规则
+ * 2. 如果能找到对应的规则，就会调用对应的loader处理这种类型文件
+ * 3. 在调用loader的时候是从后往前调用的
+ * 4. 当最后一个loader调用完毕，会把处理的结果直接交给webpack进行打包合并最终输出到bundle.js中去
  * */
 import './css/index.css'
 

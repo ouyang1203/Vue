@@ -23,3 +23,17 @@
  ### 1. 运行npm i html-webpack-plugin -D 将html-webpack-plugin插件安装到项目中
  ### 2. 在项目的webpack.config.js中导入刚才安装的html-webpack-plugin插件
  ### 3. 运行npm run dev即可将指定HTML页面也加载到内存中,同时将webpack-dev-server生成的bundle.js自动追加到这个内存中的页面
+## 使用插件导入CSS样式
+ ### /**
+ ### * 使用import语法导入CSS样式表
+ ### * 注意：webpack默认只能处理包含JS类型的文件，其他非JS类型文件我们需要手动安装第三方loader加载器；
+ ### * 1. 如果想要打包处理CSS文件，则需要安装npm i style-loader css-loader -D 到本地项目中
+ ### * 2. 打开webpack.config.js配置文件，在里面新增一个配置节点叫做module,它是一个对象，在这个module对象里有rules属性，
+ ### * 这个rules对象是数组，里面存放了所有第三方文件的匹配和处理规则
+ ### * 注意webpack处理第三方文件类型的过程：
+ ### * 1. 发现要处理的文件不是JS文件，然后就去配置文件中查找第三方loader规则
+ ### * 2. 如果能找到对应的规则，就会调用对应的loader处理这种类型文件
+ ### * 3. 在调用loader的时候是从后往前调用的
+ ### * 4. 当最后一个loader调用完毕，会把处理的结果直接交给webpack进行打包合并最终输出到bundle.js中去
+ ### * */
+ ### import './css/index.css'
