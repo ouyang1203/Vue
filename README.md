@@ -8,7 +8,7 @@
 ### 1.到项目路径下执行npm init -y初始化项目
 ### 2.导入jquery终端执行 npm i jquery -s 给项目添加jquery
 ### 3. 安装webpack
-#### npm install webpack-g 安装3.0的webpack或者不指定版本安装最新的npm install webpack -g
+#### npm install webpack-g 安装webpack
 #### 安装完毕webpack以后到终端里面执行webpack src/main.js -o dist/bundle.js()
 ## 使用webpack-dev-server工具来实现自动打包编译的功能
  ### 1. 运行npm install webpack@3.0.0 -D或者npm install webpack -D(不指定版本)把webpack安装到本地项目中
@@ -19,3 +19,7 @@
  ### 6. 再次运行npm run dev即可开启自动编译功能，在main.js文件中有修改的时候会自动编译
  ### 7. webpack-dev-server帮我们打包生成的bundle.js文件其实没有存放到实际的物理磁盘，只是托管到电脑的内存中了。所以我们在根目录看不到budle.js，但是index.html中bundle.js需要改为根目录引用,否则页面查看无效果。
  ### 8. 所以我们可以认为webpack-dev-server把打包好的文件以一种虚拟的形式托管到我们项目的根目录中，虽然我们看不到它，但是可以认为它和dist,src这些目录平级
+## 使用html-webpack-plugin插件将HTML页面也纳入内存管理
+ ### 1. 运行npm i html-webpack-plugin -D 将html-webpack-plugin插件安装到项目中
+ ### 2. 在项目的webpack.config.js中导入刚才安装的html-webpack-plugin插件
+ ### 3. 运行npm run dev即可将指定HTML页面也加载到内存中,同时将webpack-dev-server生成的bundle.js自动追加到这个内存中的页面

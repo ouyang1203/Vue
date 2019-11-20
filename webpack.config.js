@@ -7,6 +7,13 @@
 const path = require('path');
 //启用热更新的第二步
 const webpack = require('webpack');
+/**导入在内存中生成HTML的插件
+ * 只要是插件都需要放到plugins属性中
+ * html-webpack-plugin插件的作用：
+ * 1. 自动在内存中根据指定页面生成一个内存的页面
+ * 2. 自动把打包好的bundle.js追加到内存中的页面
+*/
+const htmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports={
     //development开发模式，打包的代码不会被压缩，开启代码调试
@@ -30,7 +37,14 @@ module.exports={
    },
    plugins:[//配置插件的节点
         //实例化一个热更新的对象
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new htmlWebpackPlugin({
+            //创建一个在内存中生成HTML页面的插件，这里面有两个参数
+            //template:指定模板页面，将来会根据指定的页面路径，生成内存中的页面
+            template:path.join(__dirname,'./src/index.html'),
+            //filename:指定内存中生成的HTML页面名称
+            filename:'index.html'
+        })
    ]
 }
 /**

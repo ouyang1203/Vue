@@ -8,7 +8,11 @@
     <!--main.js不能被识别，通过webpack构建工具将main.js处理成bundle.js文件-->
     <!--<script src="main.js"></script>-->
     <!--设置webpack-dev-server自动编译JS之后需要修改为根目录引用JS-->
-    <script src="/bundle.js"></script>
+    <!--
+        当使用了html-webpack-plugin之后，我们就不用再手动处理bundle.js的引用路径了，
+        因为这个插件，已经帮我们自动创建了一个合适的script,并引用了正确的路径
+    -->
+    <!--<script src="/bundle.js"></script>-->
 </head>
 <body>
     <div id="app">
