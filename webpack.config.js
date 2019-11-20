@@ -5,6 +5,8 @@
  * 在这个配置文件中，需要指定入口和出口
 */
 const path = require('path');
+//启用热更新的第二步
+const webpack = require('webpack');
 
 module.exports={
     //development开发模式，打包的代码不会被压缩，开启代码调试
@@ -14,7 +16,22 @@ module.exports={
     output:{
         path:path.join(__dirname,'./dist'),//指定输出目录
         filename:'bundle.js'//指定输出文件名
-    }
+    },
+    devServer:{//这是配置dev-server命令参数的第二中方式
+        // --open --port 3000 --contentBase src --hot
+        //自动打开浏览器
+        open:true,
+        //设置启动时的运行端口
+        port:3000,
+        //制定托管的根目录
+        contentBase:'src',
+        //启动热更新的第一步
+        hot:true
+   },
+   plugins:[//配置插件的节点
+        //实例化一个热更新的对象
+        new webpack.HotModuleReplacementPlugin()
+   ]
 }
 /**
  * 使用webpack-dev-server工具，来实现自动打包编译的功能

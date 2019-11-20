@@ -26,7 +26,9 @@ $(function(){
  * 3. 由于我们是在项目中安装的webpack-dev-server,所以无法直接在powershell终端中运行;
  * (只有全局安装 -g 的工具，终端才能正常执行)
  * 4. 新的wepack4把weipack-cli分离了，导致webpack-dev-server报错，cnpm i webpack-cli -D就好了
- * 5. 在package.json文件中scripts新增属性"dev": "webpack-dev-server --open"这个指令表示编译完成后自动打开浏览器
+ * 5. 在package.json文件中scripts新增属性"dev": "webpack-dev-server --open --port 3000 --contentBase src --hot"
+ * 这个指令表示编译完成后自动打开浏览器并制定端口为3000,同时默认打开到src下面的index.html,
+ * --hot表示热重载,修改后不再重新生成新的bundle.js，页面不刷新重载
  * 6. 再次运行npm run dev即可开启自动编译功能，在main.js文件中有修改的时候会自动编译，同时index.html中bundle.js需要改为根目录引用,
  * 否则页面查看无效果
  * 7.我们可以认为webpack-dev-server把打包好的文件以一种虚拟的形式托管到我们项目的根目录中，虽然我们看不到它，但是可以认为它和dist,src这些目录平级
