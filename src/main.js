@@ -36,7 +36,7 @@ $(function(){
  * 3. webpack命令格式为： webpack 要打包的文件路径 -o 打包好输出文件的路径
  * 
  * 使用webpack-dev-server工具来实现自动打包编译的功能
- * 0. 运行npm install webpack@3.0.0 -D或者npm install webpack -D(不指定版本)把webpack安装到本地项目中
+ * 0. 运行npm install webpack@3.0.0 -D或者npm install webpack webpack-cli -D(不指定版本)把webpack安装到本地项目中
  * 1. 运行npm i webpack-dev-server@2.11.3 -D 或者 npm i webpack-dev-server -D把这个工具安装到本地项目中
  * 2. 安装完毕后，这个工具的用法和webpack完全一样
  * 3. 由于我们是在项目中安装的webpack-dev-server,所以无法直接在powershell终端中运行;

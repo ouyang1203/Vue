@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--main.js不能被识别，通过webpack构建工具将main.js处理成bundle.js文件-->
+    <!--<script src="main.js"></script>-->
+    <!--设置webpack-dev-server自动编译JS之后需要修改为根目录引用JS-->
+    <!--
+        当使用了html-webpack-plugin之后，我们就不用再手动处理bundle.js的引用路径了，
+        因为这个插件，已经帮我们自动创建了一个合适的script,并引用了正确的路径
+    -->
+    <!--<script src="/bundle.js"></script>-->
+
+    <!--
+        单独引入CSS去除li前面的点，但是CSS会发起二次请求，不推荐这种写法
+        <link rel="stylesheet" href="./css/index.css">
+    -->
+
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li>这是第1行</li>
+            <li>这是第2行</li>
+            <li>这是第3行</li>
+            <li>这是第4行</li>
+            <li>这是第5行</li>
+            <li>这是第6行</li>
+            <li>这是第7行</li>
+            <li>这是第8行</li>
+            <li>这是第9行</li>
+            <li>这是第10行</li>
+        </ul>
+    </div>
+    <script type="text/babel">
+        var vm = new Vue({
+            el: '#app',
+            data:{
+            },
+            methods:{
+                
+            }
+        });
+    </script>
+<script type="text/javascript" src="bundle.js"></script></body>
+</html>
